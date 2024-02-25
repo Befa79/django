@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ecqfs0ecovz5ertnmm3%*++cc7br)#dao5xrp6=%wu^l5bm3&$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-befa79-django-pkv1k9p5cdf.ws-eu105.gitpod.io', '8000-befa79-django-pkv1k9p5cdf.ws-eu105.gitpod.io']
+ALLOWED_HOSTS = ['8000-befa79-django-pkv1k9p5cdf.ws-eu105.gitpod.io', '8000-befa79-django-pkv1k9p5cdf.ws-eu105.gitpod.io', '8000-befa79-django-pkv1k9p5cdf.ws-eu106.gitpod.io', '8000-befa79-django-pkv1k9p5cdf.ws-eu107.gitpod.io', '8000-befa79-django-pkv1k9p5cdf.ws-eu108.gitpod.io']
 
 # Application definition
 
@@ -57,7 +57,9 @@ ROOT_URLCONF = 'smartnotes.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / 'static/templates',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -70,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-befa79-django-pkv1k9p5cdf.ws-eu104.gitpod.io','https://*.127.0.0.1','https://8000-befa79-django-pkv1k9p5cdf.ws-eu105.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://8000-befa79-django-pkv1k9p5cdf.ws-eu104.gitpod.io','https://*.127.0.0.1','https://8000-befa79-django-pkv1k9p5cdf.ws-eu105.gitpod.io','https://8000-befa79-django-pkv1k9p5cdf.ws-eu106.gitpod.io','https://8000-befa79-django-pkv1k9p5cdf.ws-eu107.gitpod.io','https://8000-befa79-django-pkv1k9p5cdf.ws-eu108.gitpod.io']
 
 WSGI_APPLICATION = 'smartnotes.wsgi.application'
 
@@ -120,9 +122,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [ 
+    BASE_DIR / 'static',
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = '/smart/notes'
